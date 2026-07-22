@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Cookie Cleaner Extension",
+  "version": "1.0",
+  "description": "My very first Chrome extension.",
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": "assets/icon.png"
+  },
+  "background": {
+    "service_worker": "dist/background/background.js",
+    "type": "module"
+  },
+  "permissions": ["tabs", "activeTab"]
+}
