@@ -11,5 +11,6 @@
     "service_worker": "dist/background/background.js",
     "type": "module"
   },
-  "permissions": ["tabs", "activeTab"]
+  "permissions": ["tabs", "activeTab", "cookies"],
+  "host_permissions":["<all_urls>"]
 }
