@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let slider = document.getElementById('switch_checkbox') as HTMLInputElement
-    let message = document.querySelector('.test') as HTMLParagraphElement
+    let buton = document.querySelector('#buton') as HTMLInputElement
 
     async function getCurrentTab() {
       let tabs = await chrome.tabs.query({active: true, currentWindow: true})
       return tabs[0]?.url
+    }
+
+    async function reloadCurrentTab(tab: any) {
+      chrome.tabs.reload(tab.id)
     }
 
     async function removeCookies(url: any) {
@@ -20,21 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       }
         }
-        
-      
-
-    slider.addEventListener("change", async () => {
-        if (slider.checked) {
-          message.textContent = "On"
-          let urls = await getCurrentTab()
-          //console.log(urls)
-          if (urls) {
-            await removeCookies(urls)
-}
-      
-
-        } else {
-            message.textContent = "Off"
-            //console.log(getCurrentTab())
-        }
-})})
+  
+    buton.addEventListener("click", async () => {
+      let urls = await getCurrentTab()
+      await removeCookies(urls)
+      await reloadCurrentTab(urls)
+                
+      })})
