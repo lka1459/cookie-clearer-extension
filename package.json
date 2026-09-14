@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepare": "npm run build"
+  },
   "devDependencies": {
     "typescript": "^7.0.2"
   },
